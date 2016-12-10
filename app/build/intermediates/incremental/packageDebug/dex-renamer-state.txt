@@ -1,7 +1,0 @@
-#Sat Dec 10 18:25:04 BRST 2016
-base.0=/home/jackson/Documentos/Desenvolvimento/android/MovieInfo/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_3306b81faabc39179fefeb3772541bf2b06e95e6
-renamed.1=classes.dex
-renamed.0=classes2.dex
-file.1=/home/jackson/Documentos/Desenvolvimento/android/MovieInfo/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_10e2912e0385d8379ccf42638770a1a8e5db9de6/classes.dex
-base.1=/home/jackson/Documentos/Desenvolvimento/android/MovieInfo/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_10e2912e0385d8379ccf42638770a1a8e5db9de6
-file.0=/home/jackson/Documentos/Desenvolvimento/android/MovieInfo/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_3306b81faabc39179fefeb3772541bf2b06e95e6/classes.dex
