@@ -5,6 +5,7 @@ package br.com.jackson.movieinfo;
  */
 
 public final class Constants {
+
     private Constants() {
     }
 
@@ -15,4 +16,8 @@ public final class Constants {
     public static final String URL_BASE_IMAGE = "http://image.tmdb.org/t/p/w500/%s";
 
     public static final String EXTRA_MOVIE_RESULT = "EXTRA_MOVIE_RESULT";
+
+    public static final String EXTRA_SAVE_WATCHED_MOVIE = "EXTRA_SAVE_WATCHED_MOVIE";
+
+    public static final int MAX_NUMBER_MOVIES = 15;
 }

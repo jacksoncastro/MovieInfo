@@ -18,13 +18,13 @@ import br.com.jackson.movieinfo.R;
 import br.com.jackson.movieinfo.adapter.PopularMovieAdapter;
 import br.com.jackson.movieinfo.helper.HttpHelper;
 import br.com.jackson.movieinfo.model.Page;
-import br.com.jackson.movieinfo.model.Result;
+import br.com.jackson.movieinfo.model.Movie;
 
 /**
  * Created by jackson on 10/12/16.
  */
 
-public class PopularMovieAsyncTask extends AsyncTask<Integer, Void, List<Result>> {
+public class PopularMovieAsyncTask extends AsyncTask<Integer, Void, List<Movie>> {
 
     private final Context context;
     private final View view;
@@ -35,12 +35,12 @@ public class PopularMovieAsyncTask extends AsyncTask<Integer, Void, List<Result>
     }
 
     @Override
-    protected List<Result> doInBackground(Integer... parameters) {
+    protected List<Movie> doInBackground(Integer... parameters) {
         try {
             String json = HttpHelper.doGet(Constants.URL_POPULAR_MOVIES);
             Gson gson = new Gson();
             Page page = gson.fromJson(json, Page.class);
-            return page.getResults();
+            return page.getMovies();
         } catch (IOException e) {
             Log.e(PopularMovieAsyncTask.class.getSimpleName(), "Erro to call doInBackground", e);
         }
@@ -48,7 +48,7 @@ public class PopularMovieAsyncTask extends AsyncTask<Integer, Void, List<Result>
     }
 
     @Override
-    protected void onPostExecute(List<Result> results) {
+    protected void onPostExecute(List<Movie> movies) {
 
         RecyclerView recyclerView = (RecyclerView) this.view.findViewById(R.id.recycler_view_popular_movies);
 
@@ -57,7 +57,8 @@ public class PopularMovieAsyncTask extends AsyncTask<Integer, Void, List<Result>
         LinearLayoutManager layoutManager = new LinearLayoutManager(this.context);
         recyclerView.setLayoutManager(layoutManager);
 
-        PopularMovieAdapter myRecyclerViewAdapter = new PopularMovieAdapter(results);
+        // save clicked movie
+        PopularMovieAdapter myRecyclerViewAdapter = new PopularMovieAdapter(movies, true);
         recyclerView.setAdapter(myRecyclerViewAdapter);
     }
 }

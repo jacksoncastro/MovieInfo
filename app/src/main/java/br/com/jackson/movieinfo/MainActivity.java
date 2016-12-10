@@ -83,7 +83,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            Toast.makeText(MainActivity.this, "Chora Camera", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MainActivity.this, LastMoviesViewsActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_gallery) {
             Intent intent = new Intent(MainActivity.this, PopularMovieActivity.class);
             startActivity(intent);

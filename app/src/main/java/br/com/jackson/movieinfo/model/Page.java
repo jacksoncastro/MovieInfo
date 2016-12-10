@@ -1,5 +1,7 @@
 package br.com.jackson.movieinfo.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -9,7 +11,8 @@ public class Page implements Serializable {
 
 	private int page;
 
-	private List<Result> results;
+	@SerializedName("results")
+	private List<Movie> movies;
 
 	public int getPage() {
 		return page;
@@ -19,11 +22,11 @@ public class Page implements Serializable {
 		this.page = page;
 	}
 
-	public List<Result> getResults() {
-		return results;
+	public List<Movie> getMovies() {
+		return movies;
 	}
 
-	public void setResults(List<Result> results) {
-		this.results = results;
+	public void setMovies(List<Movie> movies) {
+		this.movies = movies;
 	}
 }

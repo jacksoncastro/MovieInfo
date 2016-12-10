@@ -5,11 +5,12 @@ import android.os.Parcelable;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Result implements Serializable, Parcelable {
+public class Movie implements Serializable, Parcelable {
 
 	private static final long serialVersionUID = -5348275108961102342L;
 
@@ -49,7 +50,12 @@ public class Result implements Serializable, Parcelable {
     @SerializedName("vote_average")
     private double voteAverage;
 
-	protected Result(Parcel in) {
+	private Date dateView;
+
+	public Movie() {
+	}
+
+	protected Movie(Parcel in) {
 
 		List<Integer> genreIds = new ArrayList<>();
 		in.readList(genreIds, null);
@@ -91,15 +97,15 @@ public class Result implements Serializable, Parcelable {
 		return 0;
 	}
 
-	public static final Creator<Result> CREATOR = new Creator<Result>() {
+	public static final Creator<Movie> CREATOR = new Creator<Movie>() {
 		@Override
-		public Result createFromParcel(Parcel in) {
-			return new Result(in);
+		public Movie createFromParcel(Parcel in) {
+			return new Movie(in);
 		}
 
 		@Override
-		public Result[] newArray(int size) {
-			return new Result[size];
+		public Movie[] newArray(int size) {
+			return new Movie[size];
 		}
 	};
 
@@ -213,5 +219,13 @@ public class Result implements Serializable, Parcelable {
 
 	public void setVoteAverage(double voteAverage) {
 		this.voteAverage = voteAverage;
+	}
+
+	public Date getDateView() {
+		return dateView;
+	}
+
+	public void setDateView(Date dateView) {
+		this.dateView = dateView;
 	}
 }
