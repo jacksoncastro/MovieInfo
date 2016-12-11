@@ -3,12 +3,12 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/nav_popular_movie"
             android:icon="@drawable/ic_watched_movie"
-            android:title="Import" />
+            android:title="@string/popular_movie" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_movies_accessed"
             android:icon="@drawable/ic_watched_movie"
-            android:title="Gallery" />
+            android:title="@string/movies_accessed" />
     </group>
 </menu>

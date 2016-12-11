@@ -7,4 +7,6 @@
     <string name="action_settings">Settings</string>
 
     <string name="seen_on">Seen on %1$s</string>
+    <string name="popular_movie">Popular movies</string>
+    <string name="movies_accessed">Movies acessed</string>
 </resources>
