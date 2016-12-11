@@ -1,5 +1,6 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
     <item name="ic_watched_movie" type="drawable">@drawable/watched_movie</item>
+    <item name="ic_movie" type="drawable">@drawable/movie</item>
     <item name="ic_popular_movie" type="drawable">@drawable/popular_movie</item>
     <item name="ic_menu_slideshow" type="drawable">@android:drawable/ic_menu_slideshow</item>
     <item name="ic_menu_manage" type="drawable">@android:drawable/ic_menu_manage</item>

@@ -17,7 +17,7 @@
         android:layout_width="110dp"
         android:layout_height="110dp"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        app:srcCompat="@drawable/popular_movie" />
+        app:srcCompat="@drawable/movie" />
 
     <TextView
         android:id="@+id/textView"
