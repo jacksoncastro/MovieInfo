@@ -7,7 +7,7 @@ import android.support.v7.widget.RecyclerView;
 
 import java.util.List;
 
-import br.com.jackson.movieinfo.adapter.PopularMovieAdapter;
+import br.com.jackson.movieinfo.adapter.MovieAdapter;
 import br.com.jackson.movieinfo.dao.MovieDAO;
 import br.com.jackson.movieinfo.model.Movie;
 
@@ -28,7 +28,7 @@ public class LastMoviesViewsActivity extends AppCompatActivity {
         List<Movie> movies = getLastMovies();
 
         // not save clicked movie
-        PopularMovieAdapter myRecyclerViewAdapter = new PopularMovieAdapter(movies, false);
+        MovieAdapter myRecyclerViewAdapter = new MovieAdapter(movies, false);
         recyclerView.setAdapter(myRecyclerViewAdapter);
     }
 

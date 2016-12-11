@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.text.DateFormat;
 import java.util.List;
 
 import br.com.jackson.movieinfo.Constants;
@@ -22,7 +23,7 @@ import br.com.jackson.movieinfo.model.Movie;
  * Created by jackson on 10/12/16.
  */
 
-public class PopularMovieAdapter extends RecyclerView.Adapter<PopularMovieAdapter.ViewHolder> {
+public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
 
     private List<Movie> items;
     private boolean saveWatchedMovie;
@@ -45,13 +46,13 @@ public class PopularMovieAdapter extends RecyclerView.Adapter<PopularMovieAdapte
         }
     }
 
-    public PopularMovieAdapter(List<Movie> items, boolean saveWatchedMovie) {
+    public MovieAdapter(List<Movie> items, boolean saveWatchedMovie) {
         this.items = items;
         this.saveWatchedMovie = saveWatchedMovie;
     }
 
     @Override
-    public PopularMovieAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MovieAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view_movie, parent, false);
         return new ViewHolder(view);
     }
@@ -75,6 +76,18 @@ public class PopularMovieAdapter extends RecyclerView.Adapter<PopularMovieAdapte
         TextView infoText = (TextView) holder.getView().findViewById(R.id.info_text);
 
         infoText.setText(movie.getTitle());
+
+        if (movie.getDateView() != null) {
+            TextView dateView = (TextView) holder.getView().findViewById(R.id.date_view);
+
+            DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT);
+            String date = dateFormat.format(movie.getDateView());
+
+            String seenOn = holder.getView().getContext().getString(R.string.seen_on, date);
+
+            dateView.setText(seenOn);
+        }
+
 
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override

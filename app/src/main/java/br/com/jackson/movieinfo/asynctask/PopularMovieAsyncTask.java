@@ -15,7 +15,7 @@ import java.util.List;
 
 import br.com.jackson.movieinfo.Constants;
 import br.com.jackson.movieinfo.R;
-import br.com.jackson.movieinfo.adapter.PopularMovieAdapter;
+import br.com.jackson.movieinfo.adapter.MovieAdapter;
 import br.com.jackson.movieinfo.helper.HttpHelper;
 import br.com.jackson.movieinfo.model.Page;
 import br.com.jackson.movieinfo.model.Movie;
@@ -58,7 +58,7 @@ public class PopularMovieAsyncTask extends AsyncTask<Integer, Void, List<Movie>>
         recyclerView.setLayoutManager(layoutManager);
 
         // save clicked movie
-        PopularMovieAdapter myRecyclerViewAdapter = new PopularMovieAdapter(movies, true);
+        MovieAdapter myRecyclerViewAdapter = new MovieAdapter(movies, true);
         recyclerView.setAdapter(myRecyclerViewAdapter);
     }
 }
