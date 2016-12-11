@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import br.com.jackson.movieinfo.fragments.HomeFragment;
 import br.com.jackson.movieinfo.fragments.LastMoviesViewsFragment;
 import br.com.jackson.movieinfo.fragments.PopularMovieFragment;
 
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        switchContent(HomeFragment.class, null);
     }
 
     @Override

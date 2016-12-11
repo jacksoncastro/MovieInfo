@@ -10,4 +10,6 @@
     <string name="seen_on">Visto em %1$s</string>
     <string name="popular_movie">Filmes populares</string>
     <string name="movies_accessed">Filmes acessados</string>
+    <string name="wellcome">Bem vindo</string>
+    <string name="everything_about_movies">Tudo sobre filmes, você vê aqui!</string>
 </resources>

@@ -1,9 +1,6 @@
 package br.com.jackson.movieinfo.fragments;
 
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -23,7 +20,7 @@ public class LastMoviesViewsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_last_movies_views, null);
+        View view = inflater.inflate(R.layout.fragment_last_movies_views, null);
         setContent(view);
         return view;
     }

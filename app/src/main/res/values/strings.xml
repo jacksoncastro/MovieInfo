@@ -9,4 +9,6 @@
     <string name="seen_on">Seen on %1$s</string>
     <string name="popular_movie">Popular movies</string>
     <string name="movies_accessed">Movies acessed</string>
+    <string name="wellcome">Wellcome</string>
+    <string name="everything_about_movies">Everything about movies, you see here!</string>
 </resources>
