@@ -1,19 +1,18 @@
 package br.com.jackson.movieinfo;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+
+import br.com.jackson.movieinfo.fragments.LastMoviesViewsFragment;
+import br.com.jackson.movieinfo.fragments.PopularMovieFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -52,20 +51,39 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     @SuppressWarnings("StatementWithEmptyBody")
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
+    public boolean onNavigationItemSelected(MenuItem menuItem) {
+        selectDrawerItem(menuItem);
+        return true;
+    }
 
-        if (id == R.id.nav_popular_movie) {
-            Intent intent = new Intent(MainActivity.this, PopularMovieActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_movies_accessed) {
-            Intent intent = new Intent(MainActivity.this, LastMoviesViewsActivity.class);
-            startActivity(intent);
+    private void selectDrawerItem(MenuItem menuItem) {
+        Fragment fragment = null;
+        Class fragmentClass;
+        switch(menuItem.getItemId()) {
+            case R.id.nav_popular_movie:
+                fragmentClass = PopularMovieFragment.class;
+                break;
+            case R.id.nav_movies_accessed:
+                fragmentClass = LastMoviesViewsFragment.class;
+                break;
+            default:
+                fragmentClass = PopularMovieFragment.class;
         }
 
+        try {
+            fragment = (Fragment) fragmentClass.newInstance();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.content_fragment, fragment).commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // Highlight the selected item has been done by NavigationView
+        menuItem.setChecked(true);
+        // Set action bar title
+        setTitle(menuItem.getTitle());
+        // Close the navigation drawer
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
+        drawer.closeDrawers();
     }
 }

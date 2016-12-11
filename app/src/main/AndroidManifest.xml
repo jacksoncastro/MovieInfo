@@ -20,10 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PopularMovieActivity" />
-        <activity android:name=".MovieDetailActivity"></activity>
-        <activity android:name=".LastMoviesViewsActivity">
+        <activity
+            android:name=".MovieDetailActivity">
         </activity>
     </application>
-
 </manifest>
