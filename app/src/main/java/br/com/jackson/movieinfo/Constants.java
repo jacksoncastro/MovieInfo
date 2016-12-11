@@ -9,7 +9,7 @@ public final class Constants {
     private Constants() {
     }
 
-    public static final String SECRET_KEY_API = "";
+    public static final String SECRET_KEY_API = "YOUR_SECRET_KEY_API";
 
     public static final String URL_POPULAR_MOVIES = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=" + SECRET_KEY_API;
     // 1st parameter: code image
