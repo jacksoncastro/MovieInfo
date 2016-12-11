@@ -12,4 +12,6 @@
     <string name="movies_accessed">Filmes acessados</string>
     <string name="wellcome">Bem vindo</string>
     <string name="everything_about_movies">Tudo sobre filmes, você vê aqui!</string>
+    <string name="dialog_title">Aguarde</string>
+    <string name="dialog_message">Carregando. Por favor espere...</string>
 </resources>

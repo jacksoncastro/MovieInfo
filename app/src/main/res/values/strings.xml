@@ -11,4 +11,6 @@
     <string name="movies_accessed">Movies acessed</string>
     <string name="wellcome">Wellcome</string>
     <string name="everything_about_movies">Everything about movies, you see here!</string>
+    <string name="dialog_title">Waiting</string>
+    <string name="dialog_message">Loading. Please wait...</string>
 </resources>
