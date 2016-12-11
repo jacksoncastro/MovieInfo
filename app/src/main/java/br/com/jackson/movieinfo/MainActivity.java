@@ -70,13 +70,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 fragmentClass = PopularMovieFragment.class;
         }
 
-        try {
-            fragment = (Fragment) fragmentClass.newInstance();
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.content_fragment, fragment).commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        switchContent(fragmentClass, null);
 
         // Highlight the selected item has been done by NavigationView
         menuItem.setChecked(true);
@@ -85,5 +79,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Close the navigation drawer
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawers();
+    }
+
+    public void switchContent(Class<? extends Fragment> fragmentClass, Bundle bundle) {
+        try {
+            Fragment fragment = fragmentClass.newInstance();
+            if (fragment != null && bundle != null) {
+                fragment.setArguments(bundle);
+            }
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.content_fragment, fragment).addToBackStack("tag").commit();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
     }
 }

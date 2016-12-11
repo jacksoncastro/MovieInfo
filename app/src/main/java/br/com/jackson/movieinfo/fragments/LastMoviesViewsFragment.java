@@ -39,7 +39,7 @@ public class LastMoviesViewsFragment extends Fragment {
         List<Movie> movies = getLastMovies();
 
         // not save clicked movie
-        MovieAdapter myRecyclerViewAdapter = new MovieAdapter(movies, false);
+        MovieAdapter myRecyclerViewAdapter = new MovieAdapter(getActivity(), movies, false);
         recyclerView.setAdapter(myRecyclerViewAdapter);
     }
 

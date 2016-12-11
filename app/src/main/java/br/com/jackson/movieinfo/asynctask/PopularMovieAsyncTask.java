@@ -58,7 +58,7 @@ public class PopularMovieAsyncTask extends AsyncTask<Integer, Void, List<Movie>>
         recyclerView.setLayoutManager(layoutManager);
 
         // save clicked movie
-        MovieAdapter myRecyclerViewAdapter = new MovieAdapter(movies, true);
+        MovieAdapter myRecyclerViewAdapter = new MovieAdapter(context, movies, true);
         recyclerView.setAdapter(myRecyclerViewAdapter);
     }
 }

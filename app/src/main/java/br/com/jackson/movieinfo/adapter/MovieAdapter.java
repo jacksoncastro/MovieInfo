@@ -1,6 +1,6 @@
 package br.com.jackson.movieinfo.adapter;
 
-import android.content.Intent;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,7 +15,8 @@ import java.text.DateFormat;
 import java.util.List;
 
 import br.com.jackson.movieinfo.Constants;
-import br.com.jackson.movieinfo.MovieDetailActivity;
+import br.com.jackson.movieinfo.MainActivity;
+import br.com.jackson.movieinfo.fragments.MovieDetailFragment;
 import br.com.jackson.movieinfo.R;
 import br.com.jackson.movieinfo.model.Movie;
 
@@ -25,6 +26,7 @@ import br.com.jackson.movieinfo.model.Movie;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
 
+    private Context context;
     private List<Movie> items;
     private boolean saveWatchedMovie;
 
@@ -46,7 +48,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         }
     }
 
-    public MovieAdapter(List<Movie> items, boolean saveWatchedMovie) {
+    public MovieAdapter(Context context, List<Movie> items, boolean saveWatchedMovie) {
+        this.context = context;
         this.items = items;
         this.saveWatchedMovie = saveWatchedMovie;
     }
@@ -92,12 +95,14 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(holder.view.getContext(), MovieDetailActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putParcelable(Constants.EXTRA_MOVIE_RESULT, movie);
-                bundle.putBoolean(Constants.EXTRA_SAVE_WATCHED_MOVIE, isSaveWatchedMovie());
-                intent.putExtras(bundle);
-                view.getContext().startActivity(intent);
+                if (context != null && context instanceof MainActivity) {
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable(Constants.EXTRA_MOVIE_RESULT, movie);
+                    bundle.putBoolean(Constants.EXTRA_SAVE_WATCHED_MOVIE, isSaveWatchedMovie());
+
+                    MainActivity mainActivity = (MainActivity) context;
+                    mainActivity.switchContent(MovieDetailFragment.class, bundle);
+                }
             }
         });
     }
